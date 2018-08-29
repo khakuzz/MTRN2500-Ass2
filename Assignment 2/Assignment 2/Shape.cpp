@@ -114,6 +114,7 @@ void Shape::setColor(float red_, float green_, float blue_) {
 void RectangularPrism::draw()
 {
 	glPushMatrix();
+	glRotated(rotation, 0, 1, 0);
 	glBegin(GL_QUADS);
 	glColor3d(1, 0, 0);
 	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
@@ -183,6 +184,20 @@ void TriangularPrism::draw()
 	red = getRed();
 	green = getGreen();
 	blue = getBlue();
+
+}
+
+void TriangularPrism::setSides(double FirstSide, double SecondSide, double ThirdSide)
+{
+	this->FirstSide = FirstSide;
+	this->SecondSide = SecondSide;
+	this->ThirdSide = ThirdSide;
+
+}
+
+void TriangularPrism::setLength(double length)
+{
+	this->length = length;
 
 }
 

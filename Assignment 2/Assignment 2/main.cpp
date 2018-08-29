@@ -157,7 +157,8 @@ void testing() {
 
 	RectangularPrism Rec;
 	Rec.setLength(100, 5, 10);
-	Rec.setPosition(10, 10, 10);
+	Rec.setPosition(10, 0, 10);
+	Rec.setRotation(45);
 	Rec.draw();
 
 	glBegin(GL_TRIANGLES);

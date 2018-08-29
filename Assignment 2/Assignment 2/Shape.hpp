@@ -56,6 +56,14 @@ private:
 class TriangularPrism : public Shape {
 public:
 	void draw();
+	void setSides(double FirstSide, double SecondSide, double ThirdSide);
+	void setLength(double length);
+
+private:
+	double FirstSide;
+	double SecondSide;
+	double ThirdSide;
+	double length;
 };
 
 class TrapezoidalPrism : public Shape {
