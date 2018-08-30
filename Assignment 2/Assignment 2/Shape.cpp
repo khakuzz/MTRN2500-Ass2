@@ -175,23 +175,24 @@ void RectangularPrism::setLength(double xLength, double yLength, double zLength)
 
 }
 
-void TriangularPrism::draw()
+/*void TriangularPrism::draw()
 {
-	x = getX();
-	y = getY();
-	z = getZ();
-	rotation = getRotation();
-	red = getRed();
-	green = getGreen();
-	blue = getBlue();
+	glPushMatrix();
+	glRotated(rotation, 0, 1, 0);
+	glBegin(GL_TRIANGLES);
+	glColor3d(1, 0, 0);
+	glVertex3d();
+	glVertex3d();
+	glVertex3d();
+	glEnd();
 
-}
+}*/
 
-void TriangularPrism::setSides(double FirstSide, double SecondSide, double ThirdSide)
+void TriangularPrism::setSides(double FirstSide, double SecondSide, double angle)
 {
 	this->FirstSide = FirstSide;
 	this->SecondSide = SecondSide;
-	this->ThirdSide = ThirdSide;
+	this->angle = angle;
 
 }
 
@@ -223,6 +224,10 @@ void Cylinder::draw()
 	green = getGreen();
 	blue = getBlue();
 
+}
+
+void Cylinder::setRadius(double radius)
+{
 }
 
 void MyVehicle::draw()

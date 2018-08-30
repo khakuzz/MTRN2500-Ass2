@@ -55,14 +55,14 @@ private:
 
 class TriangularPrism : public Shape {
 public:
-	void draw();
-	void setSides(double FirstSide, double SecondSide, double ThirdSide);
+//	void draw();
+	void setSides(double FirstSide, double SecondSide, double angle);
 	void setLength(double length);
 
 private:
 	double FirstSide;
 	double SecondSide;
-	double ThirdSide;
+	double angle;
 	double length;
 };
 
@@ -74,6 +74,12 @@ public:
 class Cylinder : public Shape {
 public:
 	void draw();
+	void setRadius(double radius);
+	void setHeight(double height);
+
+private:
+	double radius;
+	double height;
 };
 
 class MyVehicle : public Shape {
