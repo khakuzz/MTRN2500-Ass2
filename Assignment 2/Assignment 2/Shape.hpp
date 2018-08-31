@@ -55,7 +55,7 @@ private:
 
 class TriangularPrism : public Shape {
 public:
-//	void draw();
+	void draw();
 	void setSides(double FirstSide, double SecondSide, double angle);
 	void setLength(double length);
 

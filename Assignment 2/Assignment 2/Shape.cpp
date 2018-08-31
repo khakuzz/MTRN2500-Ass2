@@ -156,7 +156,6 @@ void RectangularPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glBegin(GL_QUADS);
 	glColor3d(0, 1, 1);
 	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
@@ -216,18 +215,21 @@ void TrapezoidalPrism::draw()
 
 void Cylinder::draw()
 {
-	x = getX();
-	y = getY();
-	z = getZ();
-	rotation = getRotation();
-	red = getRed();
-	green = getGreen();
-	blue = getBlue();
-
+	glPushMatrix();
+	GLUquadric * Cyl;
+	Cyl = gluNewQuadric();
+	gluCylinder(Cyl, radius, radius, height, 20, 1);
+	glPopMatrix();
 }
 
 void Cylinder::setRadius(double radius)
 {
+	this->radius = radius;
+}
+
+void Cylinder::setHeight(double height)
+{
+	this->height = height;
 }
 
 void MyVehicle::draw()

@@ -156,10 +156,15 @@ void drawGoals()
 void testing() {
 
 	RectangularPrism Rec;
-	Rec.setLength(100, 5, 10);
+	Rec.setLength(10, 5, 10);
 	Rec.setPosition(10, 0, 10);
 	Rec.setRotation(45);
 	Rec.draw();
+
+	Cylinder Cyl;
+	Cyl.setRadius(100);
+	Cyl.setHeight(50);
+	Cyl.draw();
 
 	glBegin(GL_TRIANGLES);
 	glColor3d(1, 1, 1);
@@ -196,6 +201,8 @@ void testing() {
 	glVertex3d(10, 0, -10);
 	glVertex3d(0, 0, -10);
 	glEnd();
+
+
 }
 
 void display() {
