@@ -59,7 +59,7 @@ class TriangularPrism : public Shape {
 public:
 	void draw();
 	void setSides(double aLength, double bLength, double theta);
-	void setLength(double depth);
+	void setDepth(double depth);
 
 private:
 	double aLength;
@@ -71,6 +71,15 @@ private:
 class TrapezoidalPrism : public Shape {
 public:
 	void draw();
+	void setSides(double aLength, double bLength, double height, double aOffset);
+	void setDepth(double depth);
+
+private:
+	double aLength;
+	double bLength;
+	double height;
+	double aOffset;
+	double depth;
 };
 
 class Cylinder : public Shape {

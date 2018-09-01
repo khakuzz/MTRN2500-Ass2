@@ -162,9 +162,16 @@ void testing() {
 	Rec.draw();
 
 	TriangularPrism Tri;
-	Tri.setLength(10);
+	Tri.setDepth(10);
+	Tri.setPosition(-10, 0, 10);
 	Tri.setSides(10, 10, 90);
 	Tri.draw();
+
+	TrapezoidalPrism Tra;
+	Tra.setDepth(15);
+	Tra.setPosition(-10, 0, -10);
+	Tra.setSides(15, 10, 10, 3);
+	Tra.draw();
 
 	Cylinder Cyl;
 	Cyl.setRadius(10);

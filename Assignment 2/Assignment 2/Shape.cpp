@@ -115,7 +115,9 @@ void Shape::setColor(float red_, float green_, float blue_) {
 void RectangularPrism::draw() // origin of shape needs to be at the base and not at the centre of the shape
 {
 	glPushMatrix();
+
 	glRotated(rotation, 0, 1, 0);
+
 	glBegin(GL_QUADS);
 	glColor3d(1, 0, 0);
 	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
@@ -163,6 +165,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
 	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
 	glEnd();
+
 	glPopMatrix();
 
 }
@@ -181,7 +184,9 @@ void TriangularPrism::draw()
 	double yDistance = bLength * sin(theta * PI / 180);
 
 	glPushMatrix();
+
 	glRotated(rotation, 0, 1, 0);
+
 	glBegin(GL_TRIANGLES);
 	glColor3d(1, 0, 0);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
@@ -219,6 +224,7 @@ void TriangularPrism::draw()
 	glVertex3d((aLength / 2), y, (depth / 2) + z);
 	glVertex3d((aLength / 2), y, (-depth / 2) + z);
 	glEnd();
+
 	glPopMatrix();
 
 }
@@ -231,7 +237,7 @@ void TriangularPrism::setSides(double aLength, double bLength, double theta)
 
 }
 
-void TriangularPrism::setLength(double depth)
+void TriangularPrism::setDepth(double depth)
 {
 	this->depth = depth;
 
@@ -239,14 +245,73 @@ void TriangularPrism::setLength(double depth)
 
 void TrapezoidalPrism::draw()
 {
-	x = getX();
-	y = getY();
-	z = getZ();
-	rotation = getRotation();
-	red = getRed();
-	green = getGreen();
-	blue = getBlue();
+	glPushMatrix();
 
+	glRotated(rotation, 0, 1, 0);
+
+	glBegin(GL_QUADS);
+	glColor3d(1, 1, 1);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(0, 0, 1);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(0, 1, 0);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(0, 1, 1);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(1, 0, 0);
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(1, 0, 1);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
+	glEnd();
+
+	glPopMatrix();
+
+}
+
+void TrapezoidalPrism::setSides(double aLength, double bLength, double height, double aOffset)
+{
+	this->aLength = aLength;
+	this->bLength = bLength;
+	this->height = height;
+	this->aOffset = aOffset;
+}
+
+void TrapezoidalPrism::setDepth(double depth)
+{
+	this->depth = depth;
 }
 
 void Cylinder::draw()
