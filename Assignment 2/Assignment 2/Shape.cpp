@@ -1,5 +1,6 @@
 
 #include "Shape.hpp"
+#include <math.h>
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -111,7 +112,7 @@ void Shape::setColor(float red_, float green_, float blue_) {
 	blue = blue_;
 };
 
-void RectangularPrism::draw()
+void RectangularPrism::draw() // origin of shape needs to be at the base and not at the centre of the shape
 {
 	glPushMatrix();
 	glRotated(rotation, 0, 1, 0);
@@ -174,30 +175,65 @@ void RectangularPrism::setLength(double xLength, double yLength, double zLength)
 
 }
 
-/*void TriangularPrism::draw()
+void TriangularPrism::draw()
 {
+	double xDistance = bLength * cos(theta * PI / 180);
+	double yDistance = bLength * sin(theta * PI / 180);
+
 	glPushMatrix();
 	glRotated(rotation, 0, 1, 0);
 	glBegin(GL_TRIANGLES);
 	glColor3d(1, 0, 0);
-	glVertex3d();
-	glVertex3d();
-	glVertex3d();
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((aLength / 2), y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
 	glEnd();
 
-}*/
+	glBegin(GL_TRIANGLES);
+	glColor3d(1, 0, 0);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2), y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
+	glEnd();
 
-void TriangularPrism::setSides(double FirstSide, double SecondSide, double angle)
-{
-	this->FirstSide = FirstSide;
-	this->SecondSide = SecondSide;
-	this->angle = angle;
+	glBegin(GL_QUADS);
+	glColor3d(1, 1, 0);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(0, 1, 0);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
+	glVertex3d((aLength / 2), y, (depth / 2) + z);
+	glVertex3d((aLength / 2), y, (-depth / 2) + z);
+	glEnd();
+
+	glBegin(GL_QUADS);
+	glColor3d(0, 0, 1);
+	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2), y, (depth / 2) + z);
+	glVertex3d((aLength / 2), y, (-depth / 2) + z);
+	glEnd();
+	glPopMatrix();
 
 }
 
-void TriangularPrism::setLength(double length)
+void TriangularPrism::setSides(double aLength, double bLength, double theta)
 {
-	this->length = length;
+	this->aLength = aLength;
+	this->bLength = bLength;
+	this->theta = theta;
+
+}
+
+void TriangularPrism::setLength(double depth)
+{
+	this->depth = depth;
 
 }
 

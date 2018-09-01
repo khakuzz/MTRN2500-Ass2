@@ -2,6 +2,8 @@
 #ifndef MTRN3500_SHAPE_H
 #define MTRN3500_SHAPE_H
 
+#define PI 3.1415926535 
+
 // Abstract class
 class Shape {
 
@@ -56,14 +58,14 @@ private:
 class TriangularPrism : public Shape {
 public:
 	void draw();
-	void setSides(double FirstSide, double SecondSide, double angle);
-	void setLength(double length);
+	void setSides(double aLength, double bLength, double theta);
+	void setLength(double depth);
 
 private:
-	double FirstSide;
-	double SecondSide;
-	double angle;
-	double length;
+	double aLength;
+	double bLength;
+	double theta;
+	double depth;
 };
 
 class TrapezoidalPrism : public Shape {

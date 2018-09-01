@@ -161,47 +161,15 @@ void testing() {
 	Rec.setRotation(45);
 	Rec.draw();
 
+	TriangularPrism Tri;
+	Tri.setLength(10);
+	Tri.setSides(10, 10, 90);
+	Tri.draw();
+
 	Cylinder Cyl;
-	Cyl.setRadius(100);
+	Cyl.setRadius(10);
 	Cyl.setHeight(50);
-	Cyl.draw();
-
-	glBegin(GL_TRIANGLES);
-	glColor3d(1, 1, 1);
-	glVertex3d(5, 10, -5);
-	glVertex3d(0, 0, 0);
-	glVertex3d(10, 0, 0);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glColor3d(0, 0, 0);
-	glVertex3d(5, 10, -5);
-	glVertex3d(10, 0, 0);
-	glVertex3d(10, 0, -10);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glColor3d(0, 1, 1);
-	glVertex3d(5, 10, -5);
-	glVertex3d(10, 0, -10);
-	glVertex3d(0, 0, -10);
-	glEnd();
-
-	glBegin(GL_TRIANGLES);
-	glColor3d(1, 1, 0);
-	glVertex3d(5, 10, -5);
-	glVertex3d(0, 0, -10);
-	glVertex3d(0, 0, 0);
-	glEnd();
-
-	glBegin(GL_QUADS);
-	glColor3d(0, 0, 1);
-	glVertex3d(0, 0, 0);
-	glVertex3d(10, 0, 0);
-	glVertex3d(10, 0, -10);
-	glVertex3d(0, 0, -10);
-	glEnd();
-
+	//Cyl.draw();
 
 }
 
