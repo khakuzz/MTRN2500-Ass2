@@ -120,50 +120,50 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 
 	glBegin(GL_QUADS);
 	glColor3d(1, 0, 0);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(1, 1, 0);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(1, 1, 1);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(1, 0, 1);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(0, 1, 0);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (yLength / 2) + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(0, 1, 1);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (-zLength / 2) + z);
-	glVertex3d((-xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
-	glVertex3d((xLength / 2) + x, (-yLength / 2) + y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
+	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
+	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
 	glEnd();
 
 	glPopMatrix();
