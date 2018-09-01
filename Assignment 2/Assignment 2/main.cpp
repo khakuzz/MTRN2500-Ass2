@@ -174,9 +174,10 @@ void testing() {
 	Tra.draw();
 
 	Cylinder Cyl;
-	Cyl.setRadius(10);
-	Cyl.setHeight(50);
-	//Cyl.draw();
+	Cyl.setRadius(5);
+	Cyl.setDepth(10);
+	Cyl.setPosition(10, 0, -10);
+	Cyl.draw();
 
 }
 

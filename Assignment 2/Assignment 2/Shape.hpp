@@ -86,11 +86,11 @@ class Cylinder : public Shape {
 public:
 	void draw();
 	void setRadius(double radius);
-	void setHeight(double height);
+	void setDepth(double depth);
 
 private:
 	double radius;
-	double height;
+	double depth;
 };
 
 class MyVehicle : public Shape {

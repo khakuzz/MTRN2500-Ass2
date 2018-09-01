@@ -317,9 +317,24 @@ void TrapezoidalPrism::setDepth(double depth)
 void Cylinder::draw()
 {
 	glPushMatrix();
+
 	GLUquadric * Cyl;
 	Cyl = gluNewQuadric();
-	gluCylinder(Cyl, radius, radius, height, 20, 1);
+
+	setY(radius);
+	glTranslated(getX(), getY(), -depth / 2);
+	gluCylinder(Cyl, radius, radius, depth, 20, 1);
+
+	glColor3d(1, 1, 1);
+
+	glTranslated(0, 0, depth);
+	gluDisk(Cyl, 0, radius, 20, 100);
+
+	glColor3d(0, 0, 1);
+
+	glTranslated(0, 0, -depth);
+	gluDisk(Cyl, 0, radius, 20, 100);
+
 	glPopMatrix();
 }
 
@@ -328,9 +343,9 @@ void Cylinder::setRadius(double radius)
 	this->radius = radius;
 }
 
-void Cylinder::setHeight(double height)
+void Cylinder::setDepth(double depth)
 {
-	this->height = height;
+	this->depth = depth;
 }
 
 void MyVehicle::draw()
