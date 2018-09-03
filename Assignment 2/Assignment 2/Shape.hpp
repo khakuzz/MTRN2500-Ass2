@@ -93,9 +93,4 @@ private:
 	double depth;
 };
 
-class MyVehicle : public Shape {
-public:
-	void draw();
-};
-
 #endif // for MTRN3500_SHAPE_H

@@ -157,27 +157,32 @@ void testing() {
 
 	RectangularPrism Rec;
 	Rec.setLength(10, 5, 10);
-	Rec.setPosition(10, 0, 10);
-	Rec.setRotation(45);
+	Rec.setPosition(25, 0, 25);
+	Rec.setRotation(0);
 	Rec.draw();
 
 	TriangularPrism Tri;
 	Tri.setDepth(10);
-	Tri.setPosition(-10, 0, 10);
+	Tri.setPosition(-25, 0, 25);
 	Tri.setSides(10, 10, 90);
 	Tri.draw();
 
 	TrapezoidalPrism Tra;
 	Tra.setDepth(15);
-	Tra.setPosition(-10, 0, -10);
+	Tra.setPosition(-25, 0, -25);
 	Tra.setSides(15, 10, 10, 3);
 	Tra.draw();
 
 	Cylinder Cyl;
+	Cyl.setPosition(10, 10, -25);
+	Cyl.setRotation(45);
 	Cyl.setRadius(5);
 	Cyl.setDepth(10);
-	Cyl.setPosition(10, 0, -10);
 	Cyl.draw();
+
+	MyVehicle Veh;
+	Veh.setPosition(0, 10, 0);
+	Veh.draw();
 
 }
 

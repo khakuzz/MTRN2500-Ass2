@@ -7,6 +7,21 @@
 #include "VectorMaths.hpp"
 #include <vector>
 
+#ifdef __APPLE__ //might have to remove this and move this to different cpp file
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#elif defined(WIN32) 
+#include <Windows.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#else
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
+
 class Vehicle : public Shape {
 	friend void remoteDriver(Vehicle * vehicle, double x, double z, double r, double speed_, double steering_);
 public:
@@ -34,6 +49,11 @@ protected:
 	double steering;  // degrees
 
 	std::vector<Shape *> shapes;
+};
+
+class MyVehicle : public Vehicle {
+public:
+	void draw();
 };
 
 double clamp(double a, double n, double b);

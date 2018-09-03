@@ -321,8 +321,10 @@ void Cylinder::draw()
 	GLUquadric * Cyl;
 	Cyl = gluNewQuadric();
 
+	glRotated(rotation, 0, 1, 0);
+
 	setY(radius);
-	glTranslated(getX(), getY(), -depth / 2);
+	glTranslated(x, y, z -depth / 2);
 	gluCylinder(Cyl, radius, radius, depth, 20, 1);
 
 	glColor3d(1, 1, 1);
@@ -346,16 +348,4 @@ void Cylinder::setRadius(double radius)
 void Cylinder::setDepth(double depth)
 {
 	this->depth = depth;
-}
-
-void MyVehicle::draw()
-{
-	x = getX();
-	y = getY();
-	z = getZ();
-	rotation = getRotation();
-	red = getRed();
-	green = getGreen();
-	blue = getBlue();
-
 }

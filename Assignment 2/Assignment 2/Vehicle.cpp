@@ -63,3 +63,35 @@ double clamp(double a, double n, double b) {
 
 };
 
+void MyVehicle::draw()
+{
+	glPushMatrix();
+	positionInGL();
+
+	RectangularPrism body;
+
+	body.setLength(3, 1, 2);
+	body.setPosition(0, 0.4, 0);
+	body.draw();
+
+	Cylinder SmallWheel;
+
+	SmallWheel.setRadius(0.4);
+	SmallWheel.setDepth(0.1);
+	SmallWheel.setPosition(1.1, 0, 1.1);
+	SmallWheel.draw();
+	SmallWheel.setPosition(1.1, 0, -1.1);
+	SmallWheel.draw();
+
+	Cylinder BigWheel;
+
+	BigWheel.setRadius(0.8);
+	BigWheel.setDepth(0.1);
+	BigWheel.setPosition(-1.1, 0, 1.1);
+	BigWheel.draw();
+	BigWheel.setPosition(-1.1, 0, -1.1);
+	BigWheel.draw();
+
+	glPopMatrix();
+
+}
