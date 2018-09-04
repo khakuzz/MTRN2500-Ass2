@@ -72,6 +72,7 @@ void MyVehicle::draw()
 
 	body.setLength(3, 1, 2);
 	body.setPosition(0, 0.4, 0);
+	body.setColor(0, 0, 1);
 	body.draw();
 
 	Cylinder SmallWheel;
@@ -79,8 +80,10 @@ void MyVehicle::draw()
 	SmallWheel.setRadius(0.4);
 	SmallWheel.setDepth(0.1);
 	SmallWheel.setPosition(1.1, 0, 1.1);
+	SmallWheel.setColor(0, 1, 0);
 	SmallWheel.draw();
 	SmallWheel.setPosition(1.1, 0, -1.1);
+	SmallWheel.setColor(0, 1, 1);
 	SmallWheel.draw();
 
 	Cylinder BigWheel;
@@ -88,8 +91,10 @@ void MyVehicle::draw()
 	BigWheel.setRadius(0.8);
 	BigWheel.setDepth(0.1);
 	BigWheel.setPosition(-1.1, 0, 1.1);
+	BigWheel.setColor(1, 0, 0);
 	BigWheel.draw();
 	BigWheel.setPosition(-1.1, 0, -1.1);
+	BigWheel.setColor(1, 0, 1);
 	BigWheel.draw();
 
 	glPopMatrix();

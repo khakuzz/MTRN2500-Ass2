@@ -116,10 +116,12 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 {
 	glPushMatrix();
 
+	glColor3d(red, green, blue);
+
 	glRotated(rotation, 0, 1, 0);
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 0, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
@@ -127,7 +129,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 1, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
@@ -135,7 +137,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 1, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
 	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
@@ -143,7 +145,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 0, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
@@ -151,7 +153,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 1, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (zLength / 2) + z);
@@ -159,7 +161,7 @@ void RectangularPrism::draw() // origin of shape needs to be at the base and not
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 1, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
@@ -185,24 +187,26 @@ void TriangularPrism::draw()
 
 	glPushMatrix();
 
+	glColor3d(red, green, blue);
+
 	glRotated(rotation, 0, 1, 0);
 
 	glBegin(GL_TRIANGLES);
-	glColor3d(1, 0, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((aLength / 2), y, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_TRIANGLES);
-	glColor3d(1, 0, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((aLength / 2), y, (depth / 2) + z);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 1, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
@@ -210,7 +214,7 @@ void TriangularPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 1, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
 	glVertex3d((aLength / 2), y, (depth / 2) + z);
@@ -218,7 +222,7 @@ void TriangularPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 0, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((aLength / 2), y, (depth / 2) + z);
@@ -247,10 +251,12 @@ void TrapezoidalPrism::draw()
 {
 	glPushMatrix();
 
+	glColor3d(red, green, blue);
+
 	glRotated(rotation, 0, 1, 0);
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 1, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
@@ -258,7 +264,7 @@ void TrapezoidalPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 0, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
@@ -266,7 +272,7 @@ void TrapezoidalPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 1, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
@@ -274,7 +280,7 @@ void TrapezoidalPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(0, 1, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
@@ -282,7 +288,7 @@ void TrapezoidalPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 0, 0);
+	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
@@ -290,7 +296,7 @@ void TrapezoidalPrism::draw()
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(1, 0, 1);
+	glColor3d(red, green, blue);
 	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
@@ -323,16 +329,13 @@ void Cylinder::draw()
 
 	glRotated(rotation, 0, 1, 0);
 
-	setY(radius);
-	glTranslated(x, y, z -depth / 2);
-	gluCylinder(Cyl, radius, radius, depth, 20, 1);
+	glColor3d(red, green, blue);
 
-	glColor3d(1, 1, 1);
+	glTranslated(x, y + radius, z -depth / 2);
+	gluCylinder(Cyl, radius, radius, depth, 20, 1);
 
 	glTranslated(0, 0, depth);
 	gluDisk(Cyl, 0, radius, 20, 100);
-
-	glColor3d(0, 0, 1);
 
 	glTranslated(0, 0, -depth);
 	gluDisk(Cyl, 0, radius, 20, 100);

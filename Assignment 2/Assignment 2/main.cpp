@@ -159,29 +159,33 @@ void testing() {
 	Rec.setLength(10, 5, 10);
 	Rec.setPosition(25, 0, 25);
 	Rec.setRotation(0);
+	Rec.setColor(0, 0, 1);
 	Rec.draw();
 
 	TriangularPrism Tri;
 	Tri.setDepth(10);
 	Tri.setPosition(-25, 0, 25);
 	Tri.setSides(10, 10, 90);
+	Tri.setColor(0, 1, 0);
 	Tri.draw();
 
 	TrapezoidalPrism Tra;
 	Tra.setDepth(15);
 	Tra.setPosition(-25, 0, -25);
 	Tra.setSides(15, 10, 10, 3);
+	Tra.setColor(0, 1, 1);
 	Tra.draw();
 
 	Cylinder Cyl;
-	Cyl.setPosition(10, 10, -25);
-	Cyl.setRotation(45);
+	Cyl.setPosition(25, 0, -25);
+	Cyl.setRotation(0);
 	Cyl.setRadius(5);
 	Cyl.setDepth(10);
+	Cyl.setColor(1, 0, 0);
 	Cyl.draw();
 
 	MyVehicle Veh;
-	Veh.setPosition(0, 10, 0);
+	Veh.setPosition(0, 0, 0);
 	Veh.draw();
 
 }
