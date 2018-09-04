@@ -194,39 +194,39 @@ void TriangularPrism::draw()
 	glBegin(GL_TRIANGLES);
 	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
-	glVertex3d((aLength / 2), y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_TRIANGLES);
 	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2), y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - xDistance, yDistance, (depth / 2) + z);
-	glVertex3d((aLength / 2), y, (depth / 2) + z);
-	glVertex3d((aLength / 2), y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x - xDistance, yDistance + y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
 	glColor3d(red, green, blue);
 	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
 	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2), y, (depth / 2) + z);
-	glVertex3d((aLength / 2), y, (-depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
+	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
 	glEnd();
 
 	glPopMatrix();

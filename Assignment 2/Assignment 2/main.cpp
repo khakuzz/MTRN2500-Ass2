@@ -163,9 +163,9 @@ void testing() {
 	Rec.draw();
 
 	TriangularPrism Tri;
-	Tri.setDepth(10);
+	Tri.setDepth(5);
 	Tri.setPosition(-25, 0, 25);
-	Tri.setSides(10, 10, 90);
+	Tri.setSides(30, 40, 30);
 	Tri.setColor(0, 1, 0);
 	Tri.draw();
 
