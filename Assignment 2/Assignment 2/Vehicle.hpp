@@ -51,10 +51,7 @@ protected:
 	std::vector<Shape *> shapes;
 };
 
-class MyVehicle : public Vehicle {
-public:
-	void draw();
-};
+
 
 double clamp(double a, double n, double b);
 

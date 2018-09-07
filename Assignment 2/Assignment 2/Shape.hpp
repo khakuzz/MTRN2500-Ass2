@@ -42,55 +42,6 @@ protected:
 
 };
 
-class RectangularPrism : public Shape {
-	
-public:
-	void draw();
-	void setLength(double xLength, double yLength, double zLength);
 
-private:
-	double xLength;
-	double yLength;
-	double zLength;
-
-};
-
-class TriangularPrism : public Shape {
-public:
-	void draw();
-	void setSides(double aLength, double bLength, double theta);
-	void setDepth(double depth);
-
-private:
-	double aLength;
-	double bLength;
-	double theta;
-	double depth;
-};
-
-class TrapezoidalPrism : public Shape {
-public:
-	void draw();
-	void setSides(double aLength, double bLength, double height, double aOffset);
-	void setDepth(double depth);
-
-private:
-	double aLength;
-	double bLength;
-	double height;
-	double aOffset;
-	double depth;
-};
-
-class Cylinder : public Shape {
-public:
-	void draw();
-	void setRadius(double radius);
-	void setDepth(double depth);
-
-private:
-	double radius;
-	double depth;
-};
 
 #endif // for MTRN3500_SHAPE_H

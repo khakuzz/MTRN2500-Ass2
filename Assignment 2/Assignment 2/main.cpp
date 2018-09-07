@@ -32,7 +32,12 @@
 #include "KeyManager.hpp"
 
 #include "Shape.hpp"
+#include "TriangularPrism.hpp"
+#include "TrapeziodalPrism.h"
+#include "RectangularPrism.hpp"
+#include "Cylinder.hpp"
 #include "Vehicle.hpp"
+#include "Brum.hpp"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
@@ -107,7 +112,7 @@ int main(int argc, char ** argv) {
 	//   custom vehicle.
 	// -------------------------------------------------------------------------
 
-	//vehicle = new MyVehicle();
+	vehicle = new MyVehicle();
 
 
 	// add test obstacles
@@ -186,7 +191,7 @@ void testing() {
 
 	MyVehicle Veh;
 	Veh.setPosition(0, 0, 0);
-	Veh.draw();
+	//Veh.draw();
 
 }
 
@@ -335,7 +340,7 @@ void idle() {
 				otherVehicles.clear();
 
 				// uncomment this line to connect to the robotics server.
-				//RemoteDataManager::Connect("www.robotics.unsw.edu.au","18081");
+				RemoteDataManager::Connect("www.robotics.unsw.edu.au","18081");
 
 				// on connect, let's tell the server what we look like
 				if (RemoteDataManager::IsConnected()) {
@@ -382,7 +387,7 @@ void idle() {
 								VehicleModel vm = models[i];
 								
 								// uncomment the line below to create remote vehicles
-								//otherVehicles[vm.remoteID] = new MyVehicle();
+								otherVehicles[vm.remoteID] = new MyVehicle();
 
 								//
 								// more student code goes here
