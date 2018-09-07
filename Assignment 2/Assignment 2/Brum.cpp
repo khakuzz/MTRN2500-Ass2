@@ -54,9 +54,6 @@ void MyVehicle::draw()
 	SmallWheel.setColor(1, 0, 1);
 	SmallWheel.draw();
 	//front right
-	//placed the rotation here because at the first set
-	// of wheels, all the wheels will rotate at centre
-	// minus the get steering to allow wheels to follow key arrows
 	SmallWheel.setPosition(1.1, 0, 1.1);
 	SmallWheel.setColor(0, 1, 0);
 	SmallWheel.setRotation(-getSteering());
