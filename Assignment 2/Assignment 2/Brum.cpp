@@ -3,6 +3,7 @@
 #include "RectangularPrism.hpp"
 #include "Cylinder.hpp"
 #include "Brum.hpp"
+#include "Vehicle.hpp"
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
@@ -39,20 +40,28 @@ void MyVehicle::draw()
 	Roof.draw();
 
 	Cylinder SmallWheel;
+	
 
+	//size of the wheels
 	SmallWheel.setRadius(0.4);
 	SmallWheel.setDepth(0.1);
-	SmallWheel.setPosition(1.1, 0, 1.1);
-	SmallWheel.setColor(0, 1, 0);
-	SmallWheel.draw();
-	SmallWheel.setPosition(1.1, 0, -1.1);
-	SmallWheel.setColor(0, 1, 1);
-	SmallWheel.draw();
+	//back left
 	SmallWheel.setPosition(-1.1, 0, -1.1);
 	SmallWheel.setColor(1, 0, 0);
 	SmallWheel.draw();
+	//back right
 	SmallWheel.setPosition(-1.1, 0, 1.1);
 	SmallWheel.setColor(1, 0, 1);
+	SmallWheel.draw();
+	//front right
+	SmallWheel.setPosition(1.1, 0, 1.1);
+	SmallWheel.setColor(0, 1, 0);
+	SmallWheel.setRotation(-getSteering());
+	SmallWheel.draw();
+	//front left
+	SmallWheel.setPosition(1.1, 0, -1.1);
+	SmallWheel.setColor(0, 1, 1);
+	SmallWheel.setRotation(-getSteering());
 	SmallWheel.draw();
 
 	TriangularPrism Spoiler;
