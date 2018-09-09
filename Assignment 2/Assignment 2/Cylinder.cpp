@@ -26,11 +26,10 @@ void Cylinder::draw()
 	GLUquadric * Cyl;
 	Cyl = gluNewQuadric();
 
-	glRotated(rotation, 0, 1, 0);
-
 	glColor3d(red, green, blue);
 
 	glTranslated(x, y + radius, z - depth / 2);
+	glRotated(rotation, 0, 1, 0);
 	gluCylinder(Cyl, radius, radius, depth, 20, 1);
 
 	glTranslated(0, 0, depth);

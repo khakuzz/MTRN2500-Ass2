@@ -1,9 +1,12 @@
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\vc141.pdb
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\vc141.idb
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\vehicle.obj
-c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\shape.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\vectormaths.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\triangularprism.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\trapoziodalprism.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\shape.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\remotedatamanager.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\rectangularprism.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\quaternion.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\obstaclemanager.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\obstacle.obj
@@ -13,7 +16,9 @@ c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn250
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\hud.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\ground.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\frustum.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\cylinder.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\camera.obj
+c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\assignment 2\debug\brum.obj
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\debug\assignment 2.exe
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\debug\assignment 2.ilk
 c:\users\harry\onedrive\unsw\mtrn2500\assignment 2\assignment 2 solution\mtrn2500-assignment-2\assignment 2\debug\assignment 2.pdb

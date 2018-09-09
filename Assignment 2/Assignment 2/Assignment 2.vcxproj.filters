@@ -57,6 +57,12 @@
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TrapoziodalPrism.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TriangularPrism.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Brum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -64,12 +70,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RectangularPrism.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TrapoziodalPrism.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TriangularPrism.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,19 +113,19 @@
     <ClInclude Include="Vehicle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Brum.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cylinder.hpp">
+    <ClInclude Include="RectangularPrism.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TrapeziodalPrism.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RectangularPrism.hpp">
+    <ClInclude Include="TriangularPrism.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TriangularPrism.hpp">
+    <ClInclude Include="Brum.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cylinder.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

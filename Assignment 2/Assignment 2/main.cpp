@@ -237,7 +237,7 @@ void display() {
 	// draw HUD
 	HUD::Draw();
 
-	testing();
+//	testing();
 
 	glutSwapBuffers();
 };
@@ -348,7 +348,7 @@ void idle() {
 
 					VehicleModel vm;
 					vm.remoteID = 0;
-
+					
 					//
 					// student code goes here
 					//
@@ -388,7 +388,7 @@ void idle() {
 								
 								// uncomment the line below to create remote vehicles
 								otherVehicles[vm.remoteID] = new MyVehicle();
-
+							
 								//
 								// more student code goes here
 								//
