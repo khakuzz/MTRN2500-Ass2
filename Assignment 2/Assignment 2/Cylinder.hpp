@@ -17,9 +17,7 @@ public:
 	void setRolling(double rolling);
 	double getRolling();
 
-	void setisRolling(bool);
 	bool getisRolling();
-	void setisSteering(bool);
 	bool getisSteering();
 
 private:

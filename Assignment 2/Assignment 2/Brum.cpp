@@ -110,3 +110,8 @@ void MyVehicle::draw()
 	glPopMatrix();
 
 }
+
+std::vector<Shape*> MyVehicle::getShapes()
+{
+	return shapes;
+}

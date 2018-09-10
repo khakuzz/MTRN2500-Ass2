@@ -349,13 +349,59 @@ void idle() {
 					VehicleModel vm;
 					vm.remoteID = 0;
 					
-					Vehicle * mycar = new MyVehicle();
-					MyVehicle * myveh = dynamic_cast<MyVehicle *>(mycar);
-
-					ShapeInit temp = {};
 					//
 					// student code goes here
 					//
+
+
+					std::vector<Shape *> shapeVector = dynamic_cast<MyVehicle *>(vehicle)->getShapes();
+					std::vector<Shape *>::iterator itera;
+
+					for (itera = shapeVector.begin(); itera != shapeVector.end(); ++itera) {
+
+						ShapeInit tempShape = {};
+
+						tempShape.xyz[0] = (*itera)->getX(); // stores the colour, location and rotation of MyVehicle
+						tempShape.xyz[1] = (*itera)->getY();
+						tempShape.xyz[2] = (*itera)->getZ();
+						tempShape.rgb[0] = (*itera)->getRed();
+						tempShape.rgb[1] = (*itera)->getGreen();
+						tempShape.rgb[2] = (*itera)->getBlue();
+						tempShape.rotation = (*itera)->getRotation();
+
+						if (dynamic_cast<RectangularPrism *>(*itera)) { // checks what type (*itera) is and stores the parameters of the shape
+							tempShape.type = RECTANGULAR_PRISM;
+							tempShape.params.rect.xlen = (float)dynamic_cast<RectangularPrism *>(*itera)->getxLength();
+							tempShape.params.rect.ylen = (float)dynamic_cast<RectangularPrism *>(*itera)->getyLength();
+							tempShape.params.rect.zlen = (float)dynamic_cast<RectangularPrism *>(*itera)->getzLength();
+							vm.shapes.push_back(tempShape);
+						}
+						else if (dynamic_cast<TriangularPrism *>(*itera)) {
+							tempShape.type = TRIANGULAR_PRISM;
+							tempShape.params.tri.alen = (float)dynamic_cast<TriangularPrism *>(*itera)->getaLength();
+							tempShape.params.tri.blen = (float)dynamic_cast<TriangularPrism *>(*itera)->getbLength();
+							tempShape.params.tri.angle = (float)dynamic_cast<TriangularPrism *>(*itera)->getTheta();
+							tempShape.params.tri.depth = (float)dynamic_cast<TriangularPrism *>(*itera)->getDepth();
+							vm.shapes.push_back(tempShape);
+						}
+						else if (dynamic_cast<TrapezoidalPrism *>(*itera)) {
+							tempShape.type = TRAPEZOIDAL_PRISM;
+							tempShape.params.trap.alen = (float)dynamic_cast<TrapezoidalPrism *>(*itera)->getaLength();
+							tempShape.params.trap.blen = (float)dynamic_cast<TrapezoidalPrism *>(*itera)->getbLength();
+							tempShape.params.trap.height = (float)dynamic_cast<TrapezoidalPrism *>(*itera)->getHeight();
+							tempShape.params.trap.aoff = (float)dynamic_cast<TrapezoidalPrism *>(*itera)->getaOffset();
+							tempShape.params.trap.depth = (float)dynamic_cast<TrapezoidalPrism *>(*itera)->getDepth();
+							vm.shapes.push_back(tempShape);
+						}
+						else if (dynamic_cast<Cylinder *>(*itera)) {
+							tempShape.type = CYLINDER;
+							tempShape.params.cyl.radius = (float)dynamic_cast<Cylinder *>(*itera)->getRadius();
+							tempShape.params.cyl.depth = (float)dynamic_cast<Cylinder *>(*itera)->getDepth();
+							tempShape.params.cyl.isRolling = (float)dynamic_cast<Cylinder *>(*itera)->getisRolling();
+							tempShape.params.cyl.isSteering = (float)dynamic_cast<Cylinder *>(*itera)->getisSteering();
+							vm.shapes.push_back(tempShape);
+						}
+					}
 
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
 				}

@@ -32,6 +32,46 @@ TriangularPrism::TriangularPrism(double aLength, double bLength, double theta, d
 
 }
 
+double TriangularPrism::getaLength()
+{
+	return aLength;
+}
+
+void TriangularPrism::setaLength(double aLength)
+{
+	this->aLength = aLength;
+}
+
+double TriangularPrism::getbLength()
+{
+	return bLength;
+}
+
+void TriangularPrism::setbLength(double bLength)
+{
+	this->bLength = bLength;
+}
+
+double TriangularPrism::getTheta()
+{
+	return theta;
+}
+
+void TriangularPrism::setTheta(double theta)
+{
+	this->theta = theta;
+}
+
+double TriangularPrism::getDepth()
+{
+	return depth;
+}
+
+void TriangularPrism::setDepth(double depth)
+{
+	this->depth = depth;
+}
+
 void TriangularPrism::draw()
 {
 	double xDistance = bLength * cos(theta * PI / 180);

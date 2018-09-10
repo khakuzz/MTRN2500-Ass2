@@ -30,6 +30,36 @@ RectangularPrism::RectangularPrism(double xLength, double yLength, double zLengt
 
 }
 
+double RectangularPrism::getxLength()
+{
+	return xLength;
+}
+
+void RectangularPrism::setxLength(double xLength)
+{
+	this->xLength = xLength;
+}
+
+double RectangularPrism::getyLength()
+{
+	return yLength;
+}
+
+void RectangularPrism::setyLength(double yLength)
+{
+	this->yLength = yLength;
+}
+
+double RectangularPrism::getzLength()
+{
+	return zLength;
+}
+
+void RectangularPrism::setzLength(double zLength)
+{
+	this->zLength = zLength;
+}
+
 void RectangularPrism::draw() // origin of shape needs to be at the base and not at the centre of the shape
 {
 	glPushMatrix();

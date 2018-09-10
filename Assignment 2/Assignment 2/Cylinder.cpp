@@ -94,3 +94,21 @@ double Cylinder::getRolling()
 	return rolling;
 }
 
+bool Cylinder::getisRolling()
+{
+	if (getRolling() != 0) {
+		std::cout << "rolling" << std::endl;
+		return true;
+	}
+	return false;
+}
+
+bool Cylinder::getisSteering()
+{
+	if (getSteering() != 0) {
+		std::cout << "steering" << std::endl;
+		return true;
+	}
+	return false;
+}
+

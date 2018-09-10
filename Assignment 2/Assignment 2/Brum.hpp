@@ -6,4 +6,5 @@ public:
 	MyVehicle();
 	void addingS(Shape * shape);
 	void draw();
+	std::vector<Shape *> getShapes();
 };

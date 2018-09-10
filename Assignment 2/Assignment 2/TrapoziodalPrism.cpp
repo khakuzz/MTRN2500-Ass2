@@ -33,6 +33,56 @@ TrapezoidalPrism::TrapezoidalPrism(double aLength, double bLength, double height
 
 }
 
+double TrapezoidalPrism::getaLength()
+{
+	return aLength;
+}
+
+void TrapezoidalPrism::setaLength(double aLength)
+{
+	this->aLength = aLength;
+}
+
+double TrapezoidalPrism::getbLength()
+{
+	return bLength;
+}
+
+void TrapezoidalPrism::setbLength(double bLength)
+{
+	this->bLength = bLength;
+}
+
+double TrapezoidalPrism::getHeight()
+{
+	return height;
+}
+
+void TrapezoidalPrism::setHeight(double height)
+{
+	this->height = height;
+}
+
+double TrapezoidalPrism::getaOffset()
+{
+	return aOffset;
+}
+
+void TrapezoidalPrism::setaOffset(double aOffset)
+{
+	this->aOffset = aOffset;
+}
+
+double TrapezoidalPrism::getDepth()
+{
+	return depth;
+}
+
+void TrapezoidalPrism::setDepth(double depth)
+{
+	this->depth = depth;
+}
+
 void TrapezoidalPrism::draw()
 {
 	glPushMatrix();
