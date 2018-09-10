@@ -438,11 +438,58 @@ void idle() {
 								
 								// uncomment the line below to create remote vehicles
 								otherVehicles[vm.remoteID] = new MyVehicle();
-							
 
 								//
 								// more student code goes here
 								//
+
+								std::vector<ShapeInit>::iterator itera;
+
+								for (itera = vm.shapes.begin(); itera != vm.shapes.end(); ++itera) {
+
+									double x = (double)(*itera).xyz[0];
+									double y = (double)(*itera).xyz[1];
+									double z = (double)(*itera).xyz[2];
+									double rotation = (double)(*itera).rotation;
+									double red = (double)(*itera).rgb[0];
+									double blue = (double)(*itera).rgb[1];
+									double green = (double)(*itera).rgb[2];
+
+									if ((*itera).type == RECTANGULAR_PRISM) {
+
+										RectangularPrism * Rect = new RectangularPrism((*itera).params.rect.xlen, (*itera).params.rect.ylen, (*itera).params.rect.zlen);
+										Rect->setPosition(x, y, z);
+										Rect->setColor(red, green, blue);
+										Rect->setRotation((*itera).rotation);
+										otherVehicles[vm.remoteID]->addShape(Rect);
+									}
+									else if ((*itera).type == TRIANGULAR_PRISM) {
+
+										TriangularPrism * Tria = new TriangularPrism((*itera).params.tri.alen, (*itera).params.tri.blen, (*itera).params.tri.angle, (*itera).params.tri.depth);
+										Tria->setPosition(x, y, z);
+										Tria->setColor(red, green, blue);
+										Tria->setRotation((*itera).rotation);
+										otherVehicles[vm.remoteID]->addShape(Tria);
+									}
+									else if ((*itera).type == TRAPEZOIDAL_PRISM) {
+										
+										TrapezoidalPrism * Trap = new TrapezoidalPrism((*itera).params.trap.alen, (*itera).params.trap.blen, (*itera).params.trap.height, (*itera).params.trap.aoff, (*itera).params.trap.depth);
+										Trap->setPosition(x, y, z);
+										Trap->setColor(red, green, blue);
+										Trap->setRotation((*itera).rotation);
+										otherVehicles[vm.remoteID]->addShape(Trap);
+									}
+									else if ((*itera).type == CYLINDER) {
+
+										Cylinder * Cyli = new Cylinder((*itera).params.cyl.radius, (*itera).params.cyl.depth);
+										Cyli->setRolling((*itera).params.cyl.isRolling);
+										Cyli->setSteering((*itera).params.cyl.isSteering);
+										Cyli->setPosition(x, y, z);
+										Cyli->setRotation((*itera).rotation);
+										otherVehicles[vm.remoteID]->addShape(Cyli);
+									}
+								}
+								
 							}
 							break;
 						}

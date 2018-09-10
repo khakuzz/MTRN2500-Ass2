@@ -103,6 +103,11 @@ bool Cylinder::getisRolling()
 	return false;
 }
 
+void Cylinder::setRolling(bool setRoll)
+{
+	rolling = setRoll;
+}
+
 bool Cylinder::getisSteering()
 {
 	if (getSteering() != 0) {
@@ -110,5 +115,10 @@ bool Cylinder::getisSteering()
 		return true;
 	}
 	return false;
+}
+
+void Cylinder::setSteering(bool setSteer)
+{
+	steering = setSteer;
 }
 
