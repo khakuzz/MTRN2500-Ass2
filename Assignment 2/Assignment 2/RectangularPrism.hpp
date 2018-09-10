@@ -4,8 +4,10 @@
 class RectangularPrism : public Shape {
 
 public:
+
+	RectangularPrism();
+	RectangularPrism(double xLength, double yLength, double zLength);
 	void draw();
-	void setLength(double xLength, double yLength, double zLength);
 
 private:
 	double xLength;

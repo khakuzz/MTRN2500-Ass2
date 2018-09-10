@@ -158,7 +158,7 @@ void drawGoals()
 	}
 }
 
-void testing() {
+/*void testing() {
 
 	RectangularPrism Rec;
 	Rec.setLength(10, 5, 10);
@@ -193,7 +193,7 @@ void testing() {
 	Veh.setPosition(0, 0, 0);
 	//Veh.draw();
 
-}
+}*/
 
 void display() {
 	frameCounter++;
@@ -348,6 +348,8 @@ void idle() {
 
 					VehicleModel vm;
 					vm.remoteID = 0;
+
+					//vm.shapes.push_back();
 					
 					//
 					// student code goes here

@@ -19,6 +19,17 @@
 #include "Cylinder.hpp"
 
 
+Cylinder::Cylinder()
+{
+	radius = depth = 0;
+}
+
+Cylinder::Cylinder(double radius, double depth)
+{
+	this->radius = radius;
+	this->depth = depth;
+}
+
 void Cylinder::draw()
 {
 	glPushMatrix();
@@ -30,23 +41,14 @@ void Cylinder::draw()
 
 	glTranslated(x, y + radius, z - depth / 2);
 	glRotated(rotation, 0, 1, 0);
-	gluCylinder(Cyl, radius, radius, depth, 20, 1);
+	gluCylinder(Cyl, radius, radius, depth, 5, 1);
 
 	glTranslated(0, 0, depth);
-	gluDisk(Cyl, 0, radius, 20, 100);
+	gluDisk(Cyl, 0, radius, 5, 1);
 
 	glTranslated(0, 0, -depth);
-	gluDisk(Cyl, 0, radius, 20, 100);
+	gluDisk(Cyl, 0, radius, 5, 1);
 
 	glPopMatrix();
 }
 
-void Cylinder::setRadius(double radius)
-{
-	this->radius = radius;
-}
-
-void Cylinder::setDepth(double depth)
-{
-	this->depth = depth;
-}

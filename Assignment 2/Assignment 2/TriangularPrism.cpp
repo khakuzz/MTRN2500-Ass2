@@ -18,6 +18,20 @@
 
 #include "TriangularPrism.hpp"
 
+TriangularPrism::TriangularPrism()
+{
+	aLength = bLength = theta = depth = 0;
+}
+
+TriangularPrism::TriangularPrism(double aLength, double bLength, double theta, double depth)
+{
+	this->aLength = aLength;
+	this->bLength = bLength;
+	this->theta = theta;
+	this->depth = depth;
+
+}
+
 void TriangularPrism::draw()
 {
 	double xDistance = bLength * cos(theta * PI / 180);
@@ -71,16 +85,3 @@ void TriangularPrism::draw()
 
 }
 
-void TriangularPrism::setSides(double aLength, double bLength, double theta)
-{
-	this->aLength = aLength;
-	this->bLength = bLength;
-	this->theta = theta;
-
-}
-
-void TriangularPrism::setDepth(double depth)
-{
-	this->depth = depth;
-
-}

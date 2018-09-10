@@ -7,9 +7,9 @@
 class TriangularPrism : public Shape {
 public:
 
+	TriangularPrism();
+	TriangularPrism(double aLength, double bLength, double theta, double depth);
 	void draw();
-	void setSides(double aLength, double bLength, double theta);
-	void setDepth(double depth);
 
 private:
 	double aLength;

@@ -2,9 +2,9 @@
 
 class Cylinder : public Shape {
 public:
+	Cylinder();
+	Cylinder(double radius, double depth);
 	void draw();
-	void setRadius(double radius);
-	void setDepth(double depth);
 
 private:
 	double radius;

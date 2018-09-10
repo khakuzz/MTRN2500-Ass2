@@ -18,17 +18,19 @@
 
 
 
-void TrapezoidalPrism::setSides(double aLength, double bLength, double height, double aOffset)
+TrapezoidalPrism::TrapezoidalPrism()
+{
+	aLength = bLength = height = aOffset = depth = 0;
+}
+
+TrapezoidalPrism::TrapezoidalPrism(double aLength, double bLength, double height, double aOffset, double depth)
 {
 	this->aLength = aLength;
 	this->bLength = bLength;
 	this->height = height;
 	this->aOffset = aOffset;
-}
-
-void TrapezoidalPrism::setDepth(double depth)
-{
 	this->depth = depth;
+
 }
 
 void TrapezoidalPrism::draw()

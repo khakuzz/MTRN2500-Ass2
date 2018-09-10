@@ -17,7 +17,12 @@
 #include "RectangularPrism.hpp"
 
 
-void RectangularPrism::setLength(double xLength, double yLength, double zLength)
+RectangularPrism::RectangularPrism()
+{
+	xLength = yLength = zLength = 0;
+}
+
+RectangularPrism::RectangularPrism(double xLength, double yLength, double zLength)
 {
 	this->xLength = xLength;
 	this->yLength = yLength;

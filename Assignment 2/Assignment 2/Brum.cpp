@@ -30,75 +30,70 @@ void MyVehicle::draw()
 	glPushMatrix();
 	positionInGL();
 
-	RectangularPrism Body;
+	Shape * Body = new RectangularPrism(3, 1, 2);
+	RectangularPrism * rect = dynamic_cast<RectangularPrism *>(Body);
 
-	Body.setLength(3, 1, 2);
-	Body.setPosition(0, 0.4, 0);
-	Body.setColor(0, 0, 1);
-	addShape(&Body);
+	rect->setPosition(0, 0.4, 0);
+	rect->setColor(0, 0, 1);
+	addingS(rect);
 	//Body.draw();
 
-	TrapezoidalPrism Roof;
+	Shape * Roof = new TrapezoidalPrism(2, 1, 1, 0.5, 2);
+	TrapezoidalPrism * Roofe = dynamic_cast<TrapezoidalPrism *>(Roof);
 
-	Roof.setDepth(2);
-	Roof.setSides(2, 1, 1, 0.5);
-	Roof.setPosition(0, 1.4, 0);
-	addShape(&Roof);
-	//shapes.push_back(&Roof);
+	Roofe->setPosition(0, 1.4, 0);
+	Roofe->setColor(1, 1, 1);
+	addingS(Roofe);
 	//Roof.draw();
 
-	Cylinder backLeft;
-	
-	//size of the wheels
-	backLeft.setRadius(0.4);
-	backLeft.setDepth(0.1);
-	backLeft.setPosition(-1.1, 0, -1.1); // back left
-	backLeft.setColor(1, 0, 0);
-	//addingS(&backLeft);
+	Shape * BLWheel = new Cylinder(0.4, 0.1);
+	Cylinder * backLeft = dynamic_cast<Cylinder *>(BLWheel);
+
+	backLeft->setPosition(-1.1, 0, -1.1);
+	backLeft->setColor(1, 0, 0);
+	addingS(BLWheel);
 	//backLeft.draw();
 
-	Cylinder backRight;
+	Shape * BRWheel = new Cylinder(0.4, 0.1);
+	Cylinder * backRight = dynamic_cast<Cylinder *>(BRWheel);
 
-	backRight.setRadius(0.4);
-	backRight.setDepth(0.1);
-	backRight.setPosition(-1.1, 0, 1.1); // back right
-	backRight.setColor(1, 0, 1);
-	//addingS(&backRight);
+	backRight->setPosition(-1.1, 0, 1.1); // back right
+	backRight->setColor(1, 0, 1);
+	addingS(backRight);
 	//backRight.draw();
 
-
-	Cylinder frontRight;
-
-	// minus the get steering to allow wheels to follow key arrows
-	frontRight.setRadius(0.4);
-	frontRight.setDepth(0.1);
-	frontRight.setPosition(1.1, 0, 1.1); // front right
-	frontRight.setColor(0, 1, 0);
-	frontRight.setRotation(-getSteering());
-	//addingS(&frontRight);
-	frontRight.draw();
-
-	Cylinder frontLeft;
+	Shape * FRWheel = new Cylinder(0.4, 0.1);
+	Cylinder * frontRight = dynamic_cast<Cylinder *>(FRWheel);
 
 	// minus the get steering to allow wheels to follow key arrows
-	frontLeft.setRadius(0.4);
-	frontLeft.setDepth(0.1);
-	frontLeft.setPosition(1.1, 0, -1.1); // front right
-	frontLeft.setColor(1, 1, 0);
-	frontLeft.setRotation(-getSteering());
-	//addingS(&frontLeft);
-	frontLeft.draw();
+	frontRight->setPosition(1.1, 0, 1.1);
+	frontRight->setColor(0, 1, 0);
+	//frontRight->setRotation(-getSteering());
+	addingS(frontRight);
 
-	TriangularPrism Spoiler;
-	Spoiler.setDepth(3);
-	Spoiler.setColor(1, 1, 0);
-	Spoiler.setSides(1, 0.4, 120);
-	Spoiler.setPosition(-1.5, 1.4, 0);
-	//addingS(&Spoiler);
-	Spoiler.draw();
+	Shape * FLWheel = new Cylinder(0.4, 0.1);
+	Cylinder * frontLeft = dynamic_cast<Cylinder *>(FLWheel);
+
+	// minus the get steering to allow wheels to follow key arrows
+	frontLeft->setPosition(1.1, 0, -1.1);
+	frontLeft->setColor(1, 1, 0);
+	//frontLeft->setRotation(-getSteering());
+	addingS(frontLeft);
+
+	Shape * Spoil = new TriangularPrism(1, 0.4, 120, 3);
+	TriangularPrism * Spoiler = dynamic_cast<TriangularPrism *>(Spoil);
+
+	Spoiler->setPosition(-1.5, 1.4, 0);
+	Spoiler->setColor(1, 1, 0);
+	addingS(Spoiler);
+	//Spoiler.draw();
+	
 
 	std::vector<Shape *>::iterator it;
 	for (it = shapes.begin(); it != shapes.end(); ++it) {
+		if(dynamic_cast<Cylinder *>(*it)){
+			(*it)->setRotation(-getSteering());
+		}
 		(*it)->draw();
 	}
 
