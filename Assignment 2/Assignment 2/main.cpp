@@ -348,9 +348,11 @@ void idle() {
 
 					VehicleModel vm;
 					vm.remoteID = 0;
-
-					//vm.shapes.push_back();
 					
+					Vehicle * mycar = new MyVehicle();
+					MyVehicle * myveh = dynamic_cast<MyVehicle *>(mycar);
+
+					ShapeInit temp = {};
 					//
 					// student code goes here
 					//
@@ -391,6 +393,7 @@ void idle() {
 								// uncomment the line below to create remote vehicles
 								otherVehicles[vm.remoteID] = new MyVehicle();
 							
+
 								//
 								// more student code goes here
 								//

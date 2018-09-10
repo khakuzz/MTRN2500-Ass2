@@ -20,12 +20,7 @@
 #include <GL/glut.h>
 #endif
 
-void MyVehicle::addingS(Shape * shape)
-{
-	addShape(shape);
-}
-
-void MyVehicle::draw()
+MyVehicle::MyVehicle()
 {
 	glPushMatrix();
 	positionInGL();
@@ -42,7 +37,7 @@ void MyVehicle::draw()
 	TrapezoidalPrism * Roofe = dynamic_cast<TrapezoidalPrism *>(Roof);
 
 	Roofe->setPosition(0, 1.4, 0);
-	Roofe->setColor(1, 1, 1);
+	Roofe->setColor(1, 0, 1);
 	addingS(Roofe);
 	//Roof.draw();
 
@@ -65,20 +60,22 @@ void MyVehicle::draw()
 	Shape * FRWheel = new Cylinder(0.4, 0.1);
 	Cylinder * frontRight = dynamic_cast<Cylinder *>(FRWheel);
 
+	addingS(frontRight);
+
 	// minus the get steering to allow wheels to follow key arrows
 	frontRight->setPosition(1.1, 0, 1.1);
 	frontRight->setColor(0, 1, 0);
 	//frontRight->setRotation(-getSteering());
-	addingS(frontRight);
 
 	Shape * FLWheel = new Cylinder(0.4, 0.1);
 	Cylinder * frontLeft = dynamic_cast<Cylinder *>(FLWheel);
+
+	addingS(frontLeft);
 
 	// minus the get steering to allow wheels to follow key arrows
 	frontLeft->setPosition(1.1, 0, -1.1);
 	frontLeft->setColor(1, 1, 0);
 	//frontLeft->setRotation(-getSteering());
-	addingS(frontLeft);
 
 	Shape * Spoil = new TriangularPrism(1, 0.4, 120, 3);
 	TriangularPrism * Spoiler = dynamic_cast<TriangularPrism *>(Spoil);
@@ -87,12 +84,25 @@ void MyVehicle::draw()
 	Spoiler->setColor(1, 1, 0);
 	addingS(Spoiler);
 	//Spoiler.draw();
-	
 
+	glPopMatrix();
+}
+
+void MyVehicle::addingS(Shape * shape)
+{
+	addShape(shape);
+}
+
+void MyVehicle::draw()
+{
+	glPushMatrix();
+	positionInGL();
+	
 	std::vector<Shape *>::iterator it;
 	for (it = shapes.begin(); it != shapes.end(); ++it) {
 		if(dynamic_cast<Cylinder *>(*it)){
-			(*it)->setRotation(-getSteering());
+			dynamic_cast<Cylinder *>(*it)->setSteering(getSteering());
+			dynamic_cast<Cylinder *>(*it)->setRolling(-speed/dynamic_cast<Cylinder *>(*it)->getRadius() + dynamic_cast<Cylinder *>(*it)->getRolling());
 		}
 		(*it)->draw();
 	}
