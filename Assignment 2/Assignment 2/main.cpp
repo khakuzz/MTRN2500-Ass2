@@ -34,16 +34,16 @@
 #include "Camera.hpp"
 #include "Ground.hpp"
 #include "KeyManager.hpp"
-
+// external source files
 #include "Shape.hpp"
 #include "TriangularPrism.hpp"
 #include "TrapeziodalPrism.h"
 #include "RectangularPrism.hpp"
 #include "Cylinder.hpp"
 #include "Vehicle.hpp"
-#include "Brum.hpp"
+#include "MyVehicle.hpp"
 #include "OtherCar.h"
-
+//
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
 #include "HUD.hpp"
@@ -164,6 +164,7 @@ void drawGoals()
 	}
 }
 
+// function to test drawings
 void testing() {
 
 	RectangularPrism Rec(10, 5, 10);
@@ -240,6 +241,7 @@ void display() {
 	// draw HUD
 	HUD::Draw();
 
+	// uncomment below to see test drawings
 	//testing();
 
 	glutSwapBuffers();
@@ -317,6 +319,7 @@ void idle() {
 	speed = 0;
 	steering = 0;
 
+	// using the gamepad for xbox controller to move vehicle
 	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || controller.PressedLeftDpad()) {
 		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
 	}
@@ -450,6 +453,7 @@ void idle() {
 								// more student code goes here
 								//
 
+								//recieving data from the server
 								std::vector<ShapeInit>::iterator itera;
 
 								for (itera = vm.shapes.begin(); itera != vm.shapes.end(); ++itera) {
