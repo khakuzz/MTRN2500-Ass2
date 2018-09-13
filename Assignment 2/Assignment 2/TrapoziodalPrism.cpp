@@ -92,51 +92,51 @@ void TrapezoidalPrism::draw()
 	glRotated(rotation, 0, 1, 0);
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
-	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
+	glColor3d(red, green, blue); // front face
+	glVertex3d(-((aLength / 2) + x), y, (-depth / 2) + z);
+	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (-depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
+	glColor3d(red, green, blue); // back face
+	glVertex3d(-((aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((-aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
+	glColor3d(red, green, blue); // top face
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (-depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset - bLength, height + y, (depth / 2) + z);
-	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
+	glColor3d(red, green, blue); // right face
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (-depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset - bLength), height + y, (depth / 2) + z);
+	glVertex3d(-((-aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((-aLength / 2) + x, y, (-depth / 2) + z);
-	glVertex3d((-aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
+	glColor3d(red, green, blue); // bottom face
+	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
+	glVertex3d(-((-aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x), y, (-depth / 2) + z);
 	glEnd();
 
 	glBegin(GL_QUADS);
-	glColor3d(red, green, blue);
-	glVertex3d((aLength / 2) + x, y, (-depth / 2) + z);
-	glVertex3d((aLength / 2) + x, y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (depth / 2) + z);
-	glVertex3d((aLength / 2) + x - aOffset, height + y, (-depth / 2) + z);
+	glColor3d(red, green, blue); // left face
+	glVertex3d(-((aLength / 2) + x), y, (-depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x), y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (depth / 2) + z);
+	glVertex3d(-((aLength / 2) + x - aOffset), height + y, (-depth / 2) + z);
 	glEnd();
 
 	glPopMatrix();

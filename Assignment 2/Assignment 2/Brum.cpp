@@ -31,7 +31,6 @@ MyVehicle::MyVehicle()
 	rect->setPosition(0, 0.4, 0);
 	rect->setColor(0, 0, 1);
 	addingS(rect);
-	//Body.draw();
 
 	Shape * Roof = new TrapezoidalPrism(2, 1, 1, 0.5, 2);
 	TrapezoidalPrism * Roofe = dynamic_cast<TrapezoidalPrism *>(Roof);
@@ -39,23 +38,24 @@ MyVehicle::MyVehicle()
 	Roofe->setPosition(0, 1.4, 0);
 	Roofe->setColor(1, 0, 1);
 	addingS(Roofe);
-	//Roof.draw();
 
 	Shape * BLWheel = new Cylinder(0.4, 0.1);
 	Cylinder * backLeft = dynamic_cast<Cylinder *>(BLWheel);
 
 	backLeft->setPosition(-1.1, 0, -1.1);
 	backLeft->setColor(1, 0, 0);
+	backLeft->setisRolling(true);
+	backLeft->setisSteering(false);
 	addingS(BLWheel);
-	//backLeft.draw();
 
 	Shape * BRWheel = new Cylinder(0.4, 0.1);
 	Cylinder * backRight = dynamic_cast<Cylinder *>(BRWheel);
 
 	backRight->setPosition(-1.1, 0, 1.1); // back right
 	backRight->setColor(1, 0, 1);
+	backRight->setisRolling(true);
+	backRight->setisSteering(false);
 	addingS(backRight);
-	//backRight.draw();
 
 	Shape * FRWheel = new Cylinder(0.4, 0.1);
 	Cylinder * frontRight = dynamic_cast<Cylinder *>(FRWheel);
@@ -64,8 +64,9 @@ MyVehicle::MyVehicle()
 
 	// minus the get steering to allow wheels to follow key arrows
 	frontRight->setPosition(1.1, 0, 1.1);
+	frontRight->setisSteering(true);
+	frontRight->setisRolling(true);
 	frontRight->setColor(0, 1, 0);
-	//frontRight->setRotation(-getSteering());
 
 	Shape * FLWheel = new Cylinder(0.4, 0.1);
 	Cylinder * frontLeft = dynamic_cast<Cylinder *>(FLWheel);
@@ -74,16 +75,16 @@ MyVehicle::MyVehicle()
 
 	// minus the get steering to allow wheels to follow key arrows
 	frontLeft->setPosition(1.1, 0, -1.1);
+	frontLeft->setisSteering(true);
+	frontLeft->setisRolling(true);
 	frontLeft->setColor(1, 1, 0);
-	//frontLeft->setRotation(-getSteering());
 
-	Shape * Spoil = new TriangularPrism(1, 0.4, 120, 3);
-	TriangularPrism * Spoiler = dynamic_cast<TriangularPrism *>(Spoil);
+	Shape * triangle = new RectangularPrism(3, 3, 3);
+	RectangularPrism * TRI = dynamic_cast<RectangularPrism *>(triangle);
 
-	Spoiler->setPosition(-1.5, 1.4, 0);
-	Spoiler->setColor(1, 1, 0);
-	addingS(Spoiler);
-	//Spoiler.draw();
+	TRI->setPosition(0, 3, 0);
+	TRI->setColor(1, 0.5, 0.5);
+	//addingS(TRI);
 
 	glPopMatrix();
 }

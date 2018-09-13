@@ -6,6 +6,7 @@
 #include <sstream>
 #include <map>
 
+
 #ifdef __APPLE__
 	#include <OpenGL/gl.h>
 	#include <OpenGL/glu.h>
@@ -26,6 +27,9 @@
 	#include <sys/time.h>
 #endif
 
+#include <Xinput.h>
+#include "XBoxController.h"
+#include "XInputWrapper.h"
 
 #include "Camera.hpp"
 #include "Ground.hpp"
@@ -38,11 +42,13 @@
 #include "Cylinder.hpp"
 #include "Vehicle.hpp"
 #include "Brum.hpp"
+#include "OtherCar.h"
 
 #include "RemoteDataManager.hpp"
 #include "Messages.hpp"
 #include "HUD.hpp"
 #include "ObstacleManager.hpp"
+
 
 void display();
 void reshape(int width, int height);
@@ -158,26 +164,23 @@ void drawGoals()
 	}
 }
 
-/*void testing() {
+void testing() {
 
-	RectangularPrism Rec;
-	Rec.setLength(10, 5, 10);
+	RectangularPrism Rec(10, 5, 10);
 	Rec.setPosition(25, 0, 25);
 	Rec.setRotation(0);
 	Rec.setColor(0, 0, 1);
 	Rec.draw();
 
-	TriangularPrism Tri;
+	TriangularPrism Tri(3, 40, 90, 30);
 	Tri.setDepth(5);
 	Tri.setPosition(-25, 0, 25);
-	Tri.setSides(30, 40, 30);
 	Tri.setColor(0, 1, 0);
 	Tri.draw();
 
-	TrapezoidalPrism Tra;
+	TrapezoidalPrism Tra(10, 10, 10, 2, 10);
 	Tra.setDepth(15);
 	Tra.setPosition(-25, 0, -25);
-	Tra.setSides(15, 10, 10, 3);
 	Tra.setColor(0, 1, 1);
 	Tra.draw();
 
@@ -193,7 +196,7 @@ void drawGoals()
 	Veh.setPosition(0, 0, 0);
 	//Veh.draw();
 
-}*/
+}
 
 void display() {
 	frameCounter++;
@@ -237,7 +240,7 @@ void display() {
 	// draw HUD
 	HUD::Draw();
 
-//	testing();
+	//testing();
 
 	glutSwapBuffers();
 };
@@ -283,6 +286,10 @@ double getTime()
 
 void idle() {
 
+	XInputWrapper xinput;
+	GamePad::XBoxController controller(&xinput, 0);
+
+
 	if (KeyManager::get()->isAsciiKeyPressed('a')) {
 		Camera::get()->strafeLeft();
 	}
@@ -310,19 +317,19 @@ void idle() {
 	speed = 0;
 	steering = 0;
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || controller.PressedLeftDpad()) {
 		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT) || controller.PressedRightDpad()) {
 		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP) || controller.PressedUpDpad()) {
 		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN) || controller.PressedDownDpad()) {
 		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 
@@ -437,7 +444,7 @@ void idle() {
 								VehicleModel vm = models[i];
 								
 								// uncomment the line below to create remote vehicles
-								otherVehicles[vm.remoteID] = new MyVehicle();
+								otherVehicles[vm.remoteID] = new OtherCar();
 
 								//
 								// more student code goes here
@@ -452,40 +459,41 @@ void idle() {
 									double z = (double)(*itera).xyz[2];
 									double rotation = (double)(*itera).rotation;
 									double red = (double)(*itera).rgb[0];
-									double blue = (double)(*itera).rgb[1];
-									double green = (double)(*itera).rgb[2];
+									double green = (double)(*itera).rgb[1];
+									double blue = (double)(*itera).rgb[2];
 
 									if ((*itera).type == RECTANGULAR_PRISM) {
 
 										RectangularPrism * Rect = new RectangularPrism((*itera).params.rect.xlen, (*itera).params.rect.ylen, (*itera).params.rect.zlen);
+										Rect->setRotation((*itera).rotation);
 										Rect->setPosition(x, y, z);
 										Rect->setColor(red, green, blue);
-										Rect->setRotation((*itera).rotation);
 										otherVehicles[vm.remoteID]->addShape(Rect);
 									}
 									else if ((*itera).type == TRIANGULAR_PRISM) {
 
 										TriangularPrism * Tria = new TriangularPrism((*itera).params.tri.alen, (*itera).params.tri.blen, (*itera).params.tri.angle, (*itera).params.tri.depth);
+										Tria->setRotation((*itera).rotation);
 										Tria->setPosition(x, y, z);
 										Tria->setColor(red, green, blue);
-										Tria->setRotation((*itera).rotation);
 										otherVehicles[vm.remoteID]->addShape(Tria);
 									}
 									else if ((*itera).type == TRAPEZOIDAL_PRISM) {
 										
 										TrapezoidalPrism * Trap = new TrapezoidalPrism((*itera).params.trap.alen, (*itera).params.trap.blen, (*itera).params.trap.height, (*itera).params.trap.aoff, (*itera).params.trap.depth);
+										Trap->setRotation((*itera).rotation);
 										Trap->setPosition(x, y, z);
 										Trap->setColor(red, green, blue);
-										Trap->setRotation((*itera).rotation);
 										otherVehicles[vm.remoteID]->addShape(Trap);
 									}
 									else if ((*itera).type == CYLINDER) {
 
 										Cylinder * Cyli = new Cylinder((*itera).params.cyl.radius, (*itera).params.cyl.depth);
-										Cyli->setRolling((*itera).params.cyl.isRolling);
-										Cyli->setSteering((*itera).params.cyl.isSteering);
-										Cyli->setPosition(x, y, z);
+										Cyli->setisRolling((*itera).params.cyl.isRolling);
+										Cyli->setisSteering((*itera).params.cyl.isSteering);
 										Cyli->setRotation((*itera).rotation);
+										Cyli->setPosition(x, y, z);
+										Cyli->setColor(red, green, blue);
 										otherVehicles[vm.remoteID]->addShape(Cyli);
 									}
 								}

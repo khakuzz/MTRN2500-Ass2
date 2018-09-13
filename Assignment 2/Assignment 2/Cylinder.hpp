@@ -18,9 +18,9 @@ public:
 	double getRolling();
 
 	bool getisRolling();
-	void setRolling(bool setRoll);
+	void setisRolling(bool setRoll);
 	bool getisSteering();
-	void setSteering(bool setSteer);
+	void setisSteering(bool setSteer);
 
 private:
 	double radius;

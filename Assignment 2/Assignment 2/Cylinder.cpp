@@ -61,8 +61,13 @@ void Cylinder::draw()
 	glColor3d(red, green, blue);
 
 	glTranslated(x, y + radius, z - depth / 2);
-	glRotated(-steering, 0, 1, 0);
-	glRotated(rolling, 0, 0, 1);
+	if (isSteering) {
+		glRotated(-steering, 0, 1, 0);
+	}
+
+	if (isRolling) {
+		glRotated(rolling, 0, 0, 1);
+	}
 	gluCylinder(Cyl, radius, radius, depth, 5, 1);
 
 	glTranslated(0, 0, depth);
@@ -96,29 +101,21 @@ double Cylinder::getRolling()
 
 bool Cylinder::getisRolling()
 {
-	if (getRolling() != 0) {
-		std::cout << "rolling" << std::endl;
-		return true;
-	}
-	return false;
+	return isRolling;
 }
 
-void Cylinder::setRolling(bool setRoll)
+void Cylinder::setisRolling(bool setRoll)
 {
-	rolling = setRoll;
+	isRolling = setRoll;
 }
 
 bool Cylinder::getisSteering()
 {
-	if (getSteering() != 0) {
-		std::cout << "steering" << std::endl;
-		return true;
-	}
-	return false;
+	return isSteering;
 }
 
-void Cylinder::setSteering(bool setSteer)
+void Cylinder::setisSteering(bool setSteer)
 {
-	steering = setSteer;
+	isSteering = setSteer;
 }
 
