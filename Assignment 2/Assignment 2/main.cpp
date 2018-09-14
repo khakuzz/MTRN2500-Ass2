@@ -291,6 +291,8 @@ void idle() {
 	XInputWrapper xinput;
 	GamePad::XBoxController controller(&xinput, 0);
 	GamePad::Coordinate leftthumb = controller.LeftThumbLocation();
+	GamePad::Coordinate righthumb = controller.RightThumbLocation();
+
 
 
 	if (KeyManager::get()->isAsciiKeyPressed('a')) {
@@ -345,11 +347,11 @@ void idle() {
 		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
 	}
 
-	if (leftthumb.GetY() > 1000) {
+	if (righthumb.GetY() > 1000) {
 		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
 	}
 
-	if (leftthumb.GetY() < -1000) {
+	if (righthumb.GetY() < -1000) {
 		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 
