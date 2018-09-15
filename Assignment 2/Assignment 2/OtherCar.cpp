@@ -3,7 +3,7 @@
 #include "TrapeziodalPrism.h"
 #include "RectangularPrism.hpp"
 #include "Cylinder.hpp"
-#include "Brum.hpp"
+#include "MyVehicle.hpp"
 #include "Vehicle.hpp"
 
 #ifdef __APPLE__
@@ -25,14 +25,14 @@ OtherCar::OtherCar()
 {
 }
 
-void OtherCar::draw()
+void OtherCar::draw() // draw method of other cars
 {
 	glPushMatrix();
 	positionInGL();
 
-	std::vector<Shape *>::iterator it;
+	std::vector<Shape *>::iterator it; // iterator with shape * vector
 	for (it = shapes.begin(); it != shapes.end(); ++it) {
-		if (dynamic_cast<Cylinder *>(*it)) {
+		if (dynamic_cast<Cylinder *>(*it)) { // if the Shape vector has a cylinder in it, set the steering and rolling
 			dynamic_cast<Cylinder *>(*it)->setSteering(getSteering());
 			dynamic_cast<Cylinder *>(*it)->setRolling(-speed / dynamic_cast<Cylinder *>(*it)->getRadius() + dynamic_cast<Cylinder *>(*it)->getRolling());
 		}

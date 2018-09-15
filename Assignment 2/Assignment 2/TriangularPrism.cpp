@@ -72,7 +72,7 @@ void TriangularPrism::setDepth(double depth)
 	this->depth = depth;
 }
 
-void TriangularPrism::draw()
+void TriangularPrism::draw() // draw method for triangular prism
 {
 	double xDistance = bLength * cos(theta * PI / 180);
 	double yDistance = bLength * sin(theta * PI / 180);

@@ -3,5 +3,5 @@
 class OtherCar : public Vehicle {
 public:
 	OtherCar();
-	void draw();
+	void draw(); // draws the vehicle
 };

@@ -51,7 +51,7 @@ double Cylinder::getDepth()
 	return depth;
 }
 
-void Cylinder::draw()
+void Cylinder::draw() // draw method for cylinder
 {
 	glPushMatrix();
 

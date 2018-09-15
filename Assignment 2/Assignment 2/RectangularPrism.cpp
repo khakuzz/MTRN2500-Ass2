@@ -60,7 +60,7 @@ void RectangularPrism::setzLength(double zLength)
 	this->zLength = zLength;
 }
 
-void RectangularPrism::draw() // origin of shape needs to be at the base and not at the centre of the shape
+void RectangularPrism::draw() // draw method for rectangular prism
 {
 	glPushMatrix();
 

@@ -51,7 +51,7 @@ MyVehicle::MyVehicle()
 	Shape * BRWheel = new Cylinder(0.4, 0.1);
 	Cylinder * backRight = dynamic_cast<Cylinder *>(BRWheel);
 
-	backRight->setPosition(-1.1, 0, 1.1); // back right
+	backRight->setPosition(-1.1, 0, 1.1); 
 	backRight->setColor(1, 0, 1);
 	backRight->setisRolling(true);
 	backRight->setisSteering(false);
@@ -94,18 +94,18 @@ void MyVehicle::addingS(Shape * shape)
 	addShape(shape);
 }
 
-void MyVehicle::draw()
+void MyVehicle::draw() // draw method for vehicle
 {
 	glPushMatrix();
 	positionInGL();
 	
-	std::vector<Shape *>::iterator it;
+	std::vector<Shape *>::iterator it; // iterator with Shape * vector
 	for (it = shapes.begin(); it != shapes.end(); ++it) {
-		if(dynamic_cast<Cylinder *>(*it)){
+		if(dynamic_cast<Cylinder *>(*it)){ // if the shape vector contains a cylinder, set the steering and rolling
 			dynamic_cast<Cylinder *>(*it)->setSteering(getSteering());
 			dynamic_cast<Cylinder *>(*it)->setRolling(-speed/dynamic_cast<Cylinder *>(*it)->getRadius() + dynamic_cast<Cylinder *>(*it)->getRolling());
 		}
-		(*it)->draw();
+		(*it)->draw(); // draw the shape
 	}
 
 	glPopMatrix();

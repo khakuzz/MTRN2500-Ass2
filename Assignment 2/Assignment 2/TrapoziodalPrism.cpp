@@ -83,7 +83,7 @@ void TrapezoidalPrism::setDepth(double depth)
 	this->depth = depth;
 }
 
-void TrapezoidalPrism::draw()
+void TrapezoidalPrism::draw() // draw method for trapezoidal prism
 {
 	glPushMatrix();
 
