@@ -317,19 +317,52 @@ void idle() {
 	speed = 0;
 	steering = 0;
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || controller.PressedLeftDpad()) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
 		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT) || controller.PressedRightDpad()) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
 		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP) || controller.PressedUpDpad()) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
 		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN) || controller.PressedDownDpad()) {
+	float magnitude = 0;
+
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
+		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+	}
+	if (controller.LeftThumbLocation().GetX() < 0) {
+		magnitude = (float)controller.LeftThumbLocation().GetX() / 32767;
+		steering = Vehicle::MAX_LEFT_STEERING_DEGS * magnitude;
+	}
+
+	if (controller.LeftThumbLocation().GetX() > 0) {
+		magnitude = (float)controller.LeftThumbLocation().GetX() / 32767;
+		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -magnitude;
+	}
+	
+	float LeftTriggerMagnitude = 0;
+	float RightTriggerMagnitude = 0;
+
+	if (controller.RightTriggerLocation() > 0) {
+		RightTriggerMagnitude = (float)controller.RightTriggerLocation() / 255;
+		speed = RightTriggerMagnitude * 10;
+	}
+
+	if (controller.LeftTriggerLocation() > 0) {
+		LeftTriggerMagnitude = (float)controller.LeftTriggerLocation() / 255;
+		speed = LeftTriggerMagnitude * -4;
+	}
+	
+
+	if (controller.PressedRightShoulder()) { // try to map this to left and right trigger instead of left and right shoulder!
+		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
+	}
+
+	if (controller.PressedLeftShoulder()) {
 		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 
