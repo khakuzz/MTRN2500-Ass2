@@ -83,21 +83,22 @@ void TriangularPrism::draw() // draw method for triangular prism
 
 	glRotated(rotation, 0, 1, 0);
 
-	glBegin(GL_TRIANGLES);
+	
+	glBegin(GL_TRIANGLES); //left face
 	glColor3d(red, green, blue);
 	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x), y, (-depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (-depth / 2) + z);
 	glEnd();
-
-	glBegin(GL_TRIANGLES);
+	
+	glBegin(GL_TRIANGLES); //right face
 	glColor3d(red, green, blue);
 	glVertex3d(-((-aLength / 2) + x), y, (depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x), y, (depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (depth / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //front face
 	glColor3d(red, green, blue);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (-depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (depth / 2) + z);
@@ -105,7 +106,7 @@ void TriangularPrism::draw() // draw method for triangular prism
 	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //back face
 	glColor3d(red, green, blue);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (-depth / 2) + z);
 	glVertex3d(-((aLength / 2) + x - xDistance), yDistance + y, (depth / 2) + z);
@@ -113,7 +114,7 @@ void TriangularPrism::draw() // draw method for triangular prism
 	glVertex3d(-((aLength / 2) + x), y, (-depth / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //bottom
 	glColor3d(red, green, blue);
 	glVertex3d(-((-aLength / 2) + x), y, (-depth / 2) + z);
 	glVertex3d(-((-aLength / 2) + x), y, (depth / 2) + z);

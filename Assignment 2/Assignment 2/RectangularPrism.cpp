@@ -60,7 +60,7 @@ void RectangularPrism::setzLength(double zLength)
 	this->zLength = zLength;
 }
 
-void RectangularPrism::draw() // draw method for rectangular prism
+void RectangularPrism::draw() // origin of shape needs to be at the base and not at the centre of the shape
 {
 	glPushMatrix();
 
@@ -68,7 +68,7 @@ void RectangularPrism::draw() // draw method for rectangular prism
 
 	glRotated(rotation, 0, 1, 0);
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //left
 	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
@@ -76,7 +76,8 @@ void RectangularPrism::draw() // draw method for rectangular prism
 	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+
+	glBegin(GL_QUADS); // right
 	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
@@ -84,7 +85,7 @@ void RectangularPrism::draw() // draw method for rectangular prism
 	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); // back
 	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((xLength / 2) + x, y, (zLength / 2) + z);
@@ -92,7 +93,7 @@ void RectangularPrism::draw() // draw method for rectangular prism
 	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); // front
 	glColor3d(red, green, blue);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (zLength / 2) + z);
@@ -100,7 +101,7 @@ void RectangularPrism::draw() // draw method for rectangular prism
 	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //top
 	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, yLength + y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, yLength + y, (-zLength / 2) + z);
@@ -108,7 +109,7 @@ void RectangularPrism::draw() // draw method for rectangular prism
 	glVertex3d((xLength / 2) + x, yLength + y, (zLength / 2) + z);
 	glEnd();
 
-	glBegin(GL_QUADS);
+	glBegin(GL_QUADS); //bottom
 	glColor3d(red, green, blue);
 	glVertex3d((xLength / 2) + x, y, (-zLength / 2) + z);
 	glVertex3d((-xLength / 2) + x, y, (-zLength / 2) + z);
